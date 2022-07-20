@@ -1,12 +1,10 @@
 class Solution {
-    public double solution(int[] arr) {
-        double answer = 0;
-        int len = arr.length;
+    public int solution(int[] a, int[] b) {
+        int answer = 0;
+        int len = a.length;
         for (int i = 0; i < len; i++) {
-            answer += arr[i];
+            answer += a[i] * b[i];
         }
-
-        answer /= len;
         return answer;
     }
 
