@@ -1,12 +1,21 @@
+import java.util.Arrays;
+
 class Solution {
-    public int solution(int n) {
+    public int solution(int num) {
         int answer = 0;
-        for (answer = 2; answer < n; answer++) {
-            if (n % answer == 1) {
-                break;
+        while (num != 1) {
+
+            if (num % 2 == 0) {
+                num /= 2;
+            } else {
+                num = num * 3 + 1;
+            }
+            answer++;
+            System.out.println(answer);
+            if (answer >= 450) {
+                answer = -1;
             }
         }
-
         return answer;
     }
 
@@ -15,8 +24,8 @@ class Solution {
         int[][] arr1 = { { 1 }, { 2 } };
         int[][] arr2 = { { 3 }, { 5 } };
         int[] arr = { 4, 3, 2, 1 };
-        int[][] returntest = solution.solution(arr1, arr2);
-        System.out.println(returntest[0][0]);
+        int returntest = solution.solution(1);
+        System.out.println(returntest);
 
     }
 
