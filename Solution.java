@@ -1,7 +1,8 @@
 import java.util.Arrays;
+import java.util.function.LongSupplier;
 
 class Solution {
-    public int solution(int num) {
+    public int solution(LongSupplier num) {
         int answer = 0;
         while (num != 1) {
 
