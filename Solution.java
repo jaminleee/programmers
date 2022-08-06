@@ -2,17 +2,30 @@ import java.lang.invoke.VarHandle.AccessMode;
 import java.util.Arrays;
 import java.util.function.LongSupplier;
 
+import javax.management.monitor.CounterMonitor;
+
 class Solution {
-    public long solution(long n) {
-        long answer = 0;
-        String str = Long.toString(n);
-        String s = "";
-        char[] ch = str.toCharArray();
-        Arrays.sort(ch);
-        for (int i = ch.length - 1; i >= 0; i--) {
-            s += ch[i];
+    public int[] solution(int[] arr, int divisor) {
+        int[] answer = {};
+        int[] temp = new int[arr.length];
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] % divisor == 0) {
+                temp[count] = arr[i];
+                count++;
+            }
         }
-        answer = Long.parseLong(s);
+        if (count == 0) {
+            answer = new int[1];
+            answer[0] = -1;
+        } else {
+            answer = new int[count];
+            for (int i = 0; i < count; i++) {
+                answer[i] = temp[i];
+            }
+            Arrays.sort(answer);
+        }
+
         return answer;
     }
 
@@ -20,9 +33,9 @@ class Solution {
         Solution solution = new Solution();
         int[][] arr1 = { { 1 }, { 2 } };
         int[][] arr2 = { { 3 }, { 5 } };
-        int[] arr = { 4, 3, 2, 1 };
-        long returntest = solution.solution(118372);
-        System.out.println(returntest);
+        int[] arr = { 3, 2, 6 };
+        int[] returntest = solution.solution(arr, 10);
+        System.out.println(returntest[1]);
 
     }
 
